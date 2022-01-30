@@ -1,0 +1,21 @@
+.sidebar-container {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #3B3B3E;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-product {
+  display: block;
+  color: #FFFFFF;
+  padding: 15px 20px;
+  text-decoration: none;
+}
+
+.sidebar-container .sidebar-product:hover {
+  background-color: #C81685;
+  cursor: pointer;
+}
