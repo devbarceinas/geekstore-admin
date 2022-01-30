@@ -1,10 +1,12 @@
 import "./Sidebar.css";
 
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   return (
     <aside className="sidebar-container">
-      <a className="sidebar-product">Inicio</a>
-      <a className="sidebar-product">Productos</a>
+      <Link to={"/"} className="sidebar-product">Inicio</Link>
+      <Link to={"/products"} className="sidebar-product">Productos</Link>
     </aside>
   );
 };

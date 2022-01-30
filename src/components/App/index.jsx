@@ -1,10 +1,8 @@
 import { AppUI } from "./AppUI";
 
-import "./AppUI.css";
-
 const App = () => {
   return (
-    <section className="appui-background">
+    <section>
       <AppUI/>
     </section>
   );
