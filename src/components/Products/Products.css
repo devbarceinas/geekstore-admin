@@ -3,3 +3,14 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
+.products-create {
+  display: block;
+  text-decoration: none;
+  background-color: #E10098;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  width: 15%;
+  text-align: center;
+  margin: 22px 0 22px 12px;
+}

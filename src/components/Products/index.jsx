@@ -1,28 +1,29 @@
-import { useContext } from "react";
-import { RequestContext } from "../../context/RequestContext"; 
 import { Product } from "../Product";
-import { Button } from "../Button";
+import { Link } from "react-router-dom";
+import { useGetRequest } from "../../hooks/useGetRequest";
 
 import "./Products.css";
 
 const Products = () => {
-  console.log("Hola");
-
-  const { allProducts } = useContext(RequestContext);
+  const products = useGetRequest([]);
+  console.log(products);
 
   return (
     <>
       <h2>Productos</h2>
-      <div>
-        <Button />      
-      </div>
+      <Link to={"/products/create"} className="products-create">
+        Agregar producto
+      </Link>
       <section className="products-container">
         {
-          allProducts.map((product) => (
-            <Product
-              key={product._id}
-              product={product}
-            />
+          products.length === 0
+          ? <h3>No hay productos</h3>
+          : products.length > 0 &&
+            products.map((product) => (
+              <Product
+                key={product._id}
+                product={product}
+              />
           ))
         }
       </section>

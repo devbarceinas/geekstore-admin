@@ -1,10 +1,9 @@
 import "./Button.css";
 
-const Button = () => {
+const Button = ({children}) => {
   return (
-    <button
-      className="button-add">
-      Agregar producto
+    <button className="button-add">
+      {children}
     </button>
   );
 }

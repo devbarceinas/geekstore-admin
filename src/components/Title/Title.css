@@ -5,6 +5,13 @@
   font-size: large;
 }
 
-h1 {
-  margin-bottom: 20px;
+p {
+  text-align: center;
+  font-size: 12px;
+  margin: 20px 0 20px 0;
+}
+
+p span {
+  display: block;
+  font-size: 28px;
 }

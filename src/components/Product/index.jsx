@@ -1,7 +1,11 @@
+import { useState } from "react/cjs/react.development";
+import { useDeleteRequest } from "../../hooks/useDeleteRequest";
+
 import "./Product.css";
 
 const Product = (props) => {
-  const {nombre, precio, imagen} = props.product;
+  const {_id, nombre, precio, imagen} = props.product;
+  const [handleDelete] = useDeleteRequest()
   return (
     <div className="product-container">
       <div className="product-image">
@@ -13,10 +17,14 @@ const Product = (props) => {
             />
           }
       </div>
-      <h3>Producto: {nombre}</h3>
+      <h3>{nombre}</h3>
       <p>Precio: ${parseFloat(precio)}</p>
       <div className="product-actions">
-        <button className="product-delete">Eliminar</button>
+        <button 
+          className="product-delete"
+          onClick={() => handleDelete(_id)}>
+            Eliminar
+        </button>
         <button className="product-edit">Editar</button>
       </div>
     </div>
