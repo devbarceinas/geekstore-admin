@@ -1,0 +1,14 @@
+import { createPortal } from 'react-dom';
+
+import './Modal.css';
+
+const Modal = ({children}) => {
+  return createPortal(
+    <div className='modal-backgroud'>
+      {children}
+    </div>,
+    document.getElementById('modal')
+  );
+}
+
+export { Modal };

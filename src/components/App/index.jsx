@@ -1,10 +1,11 @@
+import { RequestProvider } from "../../hooks/RequestProvider";
 import { AppUI } from "./AppUI";
 
 const App = () => {
   return (
-    <section>
+    <RequestProvider>
       <AppUI/>
-    </section>
+    </RequestProvider>
   );
 };
 

@@ -2,6 +2,8 @@ import { Layout } from "../Layout";
 import { Sidebar } from "../Sidebar";
 import { Title } from "../Title";
 import { Products } from "../Products";
+import { Intro } from "../Intro";
+import { Modal } from "../Modal";
 
 import { 
   BrowserRouter as Router, 
@@ -11,17 +13,28 @@ import {
 
 const AppUI = () => {
   return (
-    <Router>
-      <>
+    <>
+      <Router>
         <Sidebar/>
         <Title/>
         <Layout>
           <Switch>
-            <Route path="/products" component={Products} />
+            <Route 
+              exact
+              path="/"
+              component={Intro}
+            />
+            <Route 
+              path="/products" 
+              component={Products} 
+            />
           </Switch>
         </Layout>
-      </>
-    </Router>
+      </Router>
+      <Modal>
+        <h2>Hola</h2>
+      </Modal>
+    </>
   );
 };
 
