@@ -1,47 +1,62 @@
+import { useEditRequest } from "../../hooks/useEditRequest";
 import { Input } from "../Input"; 
 import { Button } from "../Button";
 import imgOne from "../../../public/images/img_1.jpg";
 
 import "./CreateProduct.css";
 import { withRouter, Link } from "react-router-dom";
-import { usePostRequest } from "../../hooks/usePostRequest";
 
-const CreateProduct = (props) => {
+const EditProduct = (props) => {
+  const {id} = props.match.params;
   const {
-    saveProduct,
-    alert,
+    product,
     handleChange,
     handleFile,
-    handleAddProduct,
-  } = usePostRequest({name: '', price: ''}, props);
-  
-  const {name, price } = saveProduct;
+    handleEditProduct
+  } = useEditRequest(id, {
+    nombre: '',
+    precio: '',
+    imagen: ''
+  }, props);
+
+  const { nombre, precio, imagen } = product;
 
   return (
     <>
-      <h2 className="create-product--top">Añade un nuevo producto</h2>
-      {alert && <p>Cool!</p>}
+      <h2 className="create-product--top">Edita: {nombre}</h2>
       <div className="create-product--container">
+        <div className="create-product--img">
+          <img src={imgOne} alt="illustration"/>
+        </div>
         <form
-          onSubmit={handleAddProduct} 
+          onSubmit={handleEditProduct}
           className="create-product--form">
+          <div className="sheet-geek">
+            {imagen && (
+              <img
+                src={`http://localhost:5000/${imagen}`} 
+                alt={nombre} 
+                width="300"
+              />
+            )}
+          </div>
           <Input
             label="Producto"
             type="text"
-            name="name"
-            value={name}
+            name="nombre"
             placeholder="Ingresa el nombre del producto"
             onChange={handleChange}
+            defaultValue={nombre}
           />
           <Input
             label="Precio"
             type="number"
             min="0.00"
             step="0.01"
-            name="price"
-            value={price}
+            name="precio"
             placeholder="0.00"
             onChange={handleChange}
+            defaultValue={precio}
           />
           <Input
             label="Imagen"
@@ -54,14 +69,11 @@ const CreateProduct = (props) => {
               Regresar
             </Button>
           </Link>
-          <Button>Confirmar</Button>
+          <Button>Editar</Button>
         </form>
-        <div className="create-product--img">
-          <img src={imgOne} alt="illustration"/>
-        </div>
       </div>
     </>
   );
-}
+};
 
-export default withRouter(CreateProduct);
+export default withRouter(EditProduct);

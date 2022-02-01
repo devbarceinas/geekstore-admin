@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { url } from "../config/configAxios";
 
-const usePostRequest = (initialState) => {
+const usePostRequest = (initialState, props) => {
   const [alert, setAlert] = useState(false);
   const [file, setFile] = useState('');
   const [saveProduct, setSaveProduct] = useState(initialState);
@@ -34,7 +34,9 @@ const usePostRequest = (initialState) => {
       });
       if (response.status === 200) {
         setSaveProduct(initialState);
+        setFile('');
         setAlert(true);
+        props.history.push('/products');
       }
     } catch (error) {
       setAlert(true);

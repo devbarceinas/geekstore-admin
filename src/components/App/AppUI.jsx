@@ -2,8 +2,10 @@ import { Layout } from "../Layout";
 import { Sidebar } from "../Sidebar";
 import { Title } from "../Title";
 import { Products } from "../Products";
-import { CreateProduct } from "../Products/CreateProduct";
 import { Intro } from "../Intro";
+
+import CreateProduct from "../Products/CreateProduct";
+import EditProduct from "../Products/EditProduct";
 
 import { 
   BrowserRouter as Router, 
@@ -27,6 +29,11 @@ const AppUI = () => {
             exact
             path="/products/create" 
             component={CreateProduct} 
+          />
+          <Route
+            exact
+            path="/products/edit/:id"
+            component={EditProduct}
           />
           <Route
             exact

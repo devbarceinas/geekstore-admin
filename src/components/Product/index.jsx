@@ -1,11 +1,11 @@
-import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 import { useDeleteRequest } from "../../hooks/useDeleteRequest";
 
 import "./Product.css";
 
 const Product = (props) => {
   const {_id, nombre, precio, imagen} = props.product;
-  const [handleDelete] = useDeleteRequest()
+  const [handleDelete] = useDeleteRequest();
   return (
     <div className="product-container">
       <div className="product-image">
@@ -25,7 +25,9 @@ const Product = (props) => {
           onClick={() => handleDelete(_id)}>
             Eliminar
         </button>
-        <button className="product-edit">Editar</button>
+        <Link to={`/products/edit/${_id}`}>
+          <button className="product-edit">Editar</button>
+        </Link>
       </div>
     </div>
   );

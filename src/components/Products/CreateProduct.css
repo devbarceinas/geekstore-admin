@@ -10,7 +10,7 @@
 .create-product--form {
   background-color: #FFFFFF;
   width: 40%;
-  padding: 150px 60px;
+  padding: 100px 60px;
 }
 
 .create-product--img {
@@ -22,4 +22,9 @@
   height: 100%;
   background-size: cover;
   filter: grayscale(100%);
+}
+
+.sheet-geek {
+  display: flex;
+  justify-content: center;
 }

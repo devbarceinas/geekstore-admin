@@ -6,7 +6,6 @@ import "./Products.css";
 
 const Products = () => {
   const products = useGetRequest([]);
-  console.log(products);
 
   return (
     <>
